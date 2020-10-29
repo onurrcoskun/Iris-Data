@@ -1,0 +1,52 @@
+
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Iris Prediction</h1>
+<form action="/predict/">
+<table>
+  <tr>
+    <th>Sepal Uzunluk</th>
+    <th>Sepal Genişlik</th>
+    <th>Petal Uzunluk</th>
+    <th>Petal Genişlik</th>
+  </tr>
+  <tr>
+    <td><input type="number" name="l1" value="1.2" min="0" max="10" step="any"></td>
+    <td><input type="number" name="w1" value="1.2" min="0" max="10" step="any"></td>
+    <td><input type="number" name="l2" value="1.2" min="0" max="10" step="any"></td>
+    <th><input type="number" name="w2" value="1.2" min="0" max="10" step="any"></th>
+  </tr>
+</table>
+
+<input type="submit" value="Predict">
+</form> 
+<p>If you click the "Predict" button, the form-data will be sent to a page called "/predict"</p>
+  
+  <div id="content">
+  {% block content %}{%endblock%}
+  </div>
+  
+
+</body>
+</html>
+
