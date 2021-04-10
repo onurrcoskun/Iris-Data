@@ -4,7 +4,6 @@ Created on Thu Oct 29 10:15:19 2020
 
 @author: Onur
 """
-
 #%%
 #load model
 from  joblib import load
@@ -16,13 +15,9 @@ dataSet = load_iris()
 labelsNames= list(dataSet.target_names)
 
 #%%
-
-
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 import numpy as np
-
-
 template =Jinja2Templates(directory="template")
 
 app = FastAPI()
@@ -41,6 +36,4 @@ async def make_prediction(request:Request, l1:float, w1:float, l2:float, w2:floa
     probality=probalities[predicted]
     predicted =labelsNames[predicted]
     return template.TemplateResponse("prediction.html", {"request":request,"probalities":probalities, "predicted": predicted,"probality":probality})
-
-
 #%%
